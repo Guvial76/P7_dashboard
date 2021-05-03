@@ -19,8 +19,6 @@ def request_prediction(model_uri, data):
 
 def main():
     MLFLOW_URI = 'http://127.0.0.1:5000/invocations'
-    CORTEX_URI = 'http://0.0.0.0:8890/'
-    RAY_SERVE_URI = 'http://127.0.0.1:8000/regressor'
 
     api_choice = st.sidebar.selectbox(
         'Quelle API souhaitez vous utiliser',
