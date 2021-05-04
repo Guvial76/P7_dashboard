@@ -65,7 +65,7 @@ def main():
             pred = request_prediction(Autre_URI, data)[0] * 100000
             
         st.write(
-            'Le prix médian d\'une habitation est de {:.2f}'.format(pred))
+            'Score credit {:.2f}'.format(pred))
 
 
 if __name__ == '__main__':
