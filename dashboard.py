@@ -20,9 +20,12 @@ def request_prediction(model_uri, data):
 def main():
     MLFLOW_URI = 'http://127.0.0.1:5000/invocations'
 
+    st.write(
+
+# partie a modifier
     api_choice = st.sidebar.selectbox(
         'Quelle API souhaitez vous utiliser',
-        ['MLflow', 'Cortex', 'Ray Serve'])
+        ['MLflow', 'Autre choix'])
 
     st.title('Median House Price Prediction')
 
@@ -58,10 +61,9 @@ def main():
 
         if api_choice == 'MLflow':
             pred = request_prediction(MLFLOW_URI, data)[0] * 100000
-        elif api_choice == 'Cortex':
-            pred = request_prediction(CORTEX_URI, data)[0] * 100000
-        elif api_choice == 'Ray Serve':
-            pred = request_prediction(RAY_SERVE_URI, data)[0] * 100000
+        elif api_choice == 'Autre choix':
+            pred = request_prediction(Autre_URI, data)[0] * 100000
+            
         st.write(
             'Le prix médian d\'une habitation est de {:.2f}'.format(pred))
 
