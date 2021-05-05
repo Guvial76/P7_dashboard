@@ -45,18 +45,17 @@ else :
 # Display Customer general information
 st.subheader('Customer Key Information')
 main_feat = ['EXT_SOURCE_1', 'EXT_SOURCE_2', 'PAYMENT_RATE', 'EXT_SOURCE_3', 'DAYS_BIRTH','AMT_ANNUITY']
-st.write(df[main_feat][df['SK_ID_CURR']==cust_id])
+st.dataframe(df[main_feat][df['SK_ID_CURR']==cust_id])
 
 # Display Average information
 st.subheader('Overall Key Information')
 st.write("""
 Average
 """)
-st.write(df[main_feat].mean())
+st.dataframe(df[main_feat].mean())
 
 st.write("""
 
 Standard Deviation
 """)
-st.write(df[main_feat].std())
-
+st.dataframe(df[main_feat].std())
