@@ -14,15 +14,12 @@ This app provides information regarding credit decision based on customer scorin
 data = pd.read_csv('test_data.csv')
 df = data.drop('TARGET', axis = 1)
 df=df.drop('Unnamed: 0', axis=1)
+cust_list = df['SK_ID_CURR'].unique()[:10]
 
 
 # Input and save Credit Application Number (SK_ID_CURR)
 st.sidebar.header('Credit Application Number')
-st.sidebar.markdown("""
-Please fill the SK_ID_CURR
-""")
-cust_id = int(st.sidebar.text_input('SK_ID_CURR', 100001))
-
+cust_id = st.sidebar.selectbox('Select SK_ID_CURR',cust_list)
 
 # Apply saved model to make predictions
 load_clf = joblib.load("trained_model.joblib")
@@ -43,3 +40,23 @@ if score > thd :
 
 else :
 	st.write('Refused')
+
+
+# Display Customer general information
+st.subheader('Customer Key Information')
+main_feat = ['EXT_SOURCE_1', 'EXT_SOURCE_2', 'PAYMENT_RATE', 'EXT_SOURCE_3', 'DAYS_BIRTH','AMT_ANNUITY']
+st.write(df[main_feat][df['SK_ID_CURR']==cust_id])
+
+# Display Average information
+st.subheader('Overall Key Information')
+st.write("""
+Average
+""")
+st.write(df[main_feat].mean())
+
+st.write("""
+
+Standard Deviation
+""")
+st.write(df[main_feat].std())
+
