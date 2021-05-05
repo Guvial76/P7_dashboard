@@ -26,7 +26,7 @@ data = pd.read_csv('test_data.csv')
 df = data.drop('TARGET', axis = 1)
 
 # Read in saved classification model
-load_clf = joblib.load(trained_model.joblib)
+load_clf = joblib.load("trained_model.joblib")
 
 # Apply model to make predictions
 prediction_proba = load_clf.predict_proba(df.loc[df['SK_ID_CURR'] = cust_id])
