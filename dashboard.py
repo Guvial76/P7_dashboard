@@ -4,10 +4,9 @@ import joblib
 
 
 st.write("""
-# Credit Score App
+# Pret A Depenser
 
-This app provides information regarding credit decision based on customer scoring
-
+Credit Dashboard
 """)
 
 # Load processed test data
@@ -52,10 +51,10 @@ st.subheader('Overall Key Information')
 st.write("""
 Average
 """)
-st.dataframe(df[main_feat].mean())
+st.dataframe(df[main_feat].mean().to_frame())
 
 st.write("""
 
 Standard Deviation
 """)
-st.dataframe(df[main_feat].std())
+st.dataframe(df[main_feat].std().to_frame())
