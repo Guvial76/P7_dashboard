@@ -3,7 +3,7 @@
 This project folder is designed to roll out an interactive dashboard of credit decisions.
 
 It consists of the following files:
-* .ipnb: modelisation notebook
+* modelisation.ipynb: modelisation notebook
 * trained_model.joblib: serialized classification model
 * trained_model_threshold.joblib: serialized model's threshold
 * dashboard.py: interactive dashboard program
